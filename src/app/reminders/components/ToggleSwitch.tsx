@@ -2,11 +2,18 @@
 
 import { useState } from "react";
 
-export default function ToggleSwitch({ defaultValue = false }) {
+type ToggleSwitchProps = {
+  defaultValue?: boolean;
+};
+
+export default function ToggleSwitch({
+  defaultValue = false,
+}: ToggleSwitchProps) {
   const [enabled, setEnabled] = useState(defaultValue);
 
   return (
     <button
+      type="button"
       onClick={() => setEnabled(!enabled)}
       className={`relative w-12 h-7 rounded-full transition-colors duration-300 ease-in-out cursor-pointer ${
         enabled ? "bg-[#5B4EF7]" : "bg-[#E5E5EF]"
