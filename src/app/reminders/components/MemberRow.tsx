@@ -1,3 +1,12 @@
+type MemberRowProps = {
+  initials: string;
+  name: string;
+  info: string;
+  badge: string;
+  color: string;
+  expired: boolean;
+};
+
 export default function MemberRow({
   initials,
   name,
@@ -5,10 +14,9 @@ export default function MemberRow({
   badge,
   color,
   expired,
-}) {
+}: MemberRowProps) {
   return (
     <div className="flex items-center justify-between">
-
       <div className="flex gap-3 items-center">
         <div
           className={`w-10 h-10 rounded-xl flex items-center justify-center text-white text-xs font-bold ${color}`}
@@ -17,13 +25,9 @@ export default function MemberRow({
         </div>
 
         <div>
-          <p className="font-semibold text-[#1F1F3D]">
-            {name}
-          </p>
+          <p className="font-semibold text-[#1F1F3D]">{name}</p>
 
-          <p className="text-xs text-[#777792]">
-            {info}
-          </p>
+          <p className="text-xs text-[#777792]">{info}</p>
         </div>
       </div>
 
