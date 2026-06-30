@@ -1,18 +1,22 @@
+"use client";
+
+import { useRouter } from "next/navigation";
 import Header from "@/components/layout/Header";
 import BottomNavigation from "@/components/layout/BottomNavigation";
-
 import StatCard from "@/components/dashboard/StatCard";
 import MembersTypeCard from "@/components/dashboard/MembersTypeCard";
 import ExpiringMembersCard from "@/components/dashboard/ExpiringMembersCard";
-import { IconCalendarWeekFilled } from '@tabler/icons-react';
+import { IconCalendarWeekFilled } from "@tabler/icons-react";
 
 export default function DashboardPage() {
+    const router = useRouter();
+
     return (
         <div className="min-h-screen bg-[#DCD7F7] flex justify-center">
             <div className="w-full max-w-sm pb-18 bg-[#F4F3FF]">
                 <Header />
-                <div className="p-4 space-y-4">
 
+                <div className="p-4 space-y-4">
                     <div className="bg-white rounded-3xl p-5">
                         <div className="py-3 flex items-center justify-between">
                             <div>
@@ -25,9 +29,14 @@ export default function DashboardPage() {
                             </div>
 
                             <div className="bg-white p-1 border border-[#000]/20 rounded-lg">
-                                <IconCalendarWeekFilled className="text-gray-500" size={24} stroke={0.5} />
+                                <IconCalendarWeekFilled
+                                    className="text-gray-500"
+                                    size={24}
+                                    stroke={0.5}
+                                />
                             </div>
                         </div>
+
                         <div className="grid grid-cols-2 gap-4 mt-2">
                             <StatCard
                                 title="TOTAL MEMBERS"
@@ -50,18 +59,21 @@ export default function DashboardPage() {
                                 badgeColor="bg-red-100 text-red-500"
                             />
 
-                            <StatCard
-                                title="EXPENSES"
-                                value="₹32,000"
-                                badge="This month"
-                                badgeColor="bg-yellow-100 text-yellow-600"
-                            />
+                            <div
+                                onClick={() => router.push("/expenses")}
+                                className="cursor-pointer"
+                            >
+                                <StatCard
+                                    title="EXPENSES"
+                                    value="₹32,000"
+                                    badge="This month"
+                                    badgeColor="bg-yellow-100 text-yellow-600"
+                                />
+                            </div>
                         </div>
                     </div>
 
-
                     <MembersTypeCard />
-
                     <ExpiringMembersCard />
                 </div>
 

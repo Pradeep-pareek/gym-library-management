@@ -34,7 +34,7 @@ export default function LoginPage() {
                   : "text-gray-500"
               }`}
             >
-              Admin
+             Log in
             </button>
 
             <button
@@ -46,7 +46,7 @@ export default function LoginPage() {
                   : "text-gray-500"
               }`}
             >
-              Employee
+              Sign up
             </button>
           </div>
 
@@ -82,8 +82,8 @@ export default function LoginPage() {
               className="w-full rounded-xl bg-[#5B4CF6] text-white lg:text-base text-base font-medium hover:bg-[#4F40F4] transition py-[10px] mt-6 cursor-pointer"
             >
               {activeTab === "admin"
-                ? "Admin Sign In"
-                : "Employee Sign In"}
+                ? "Log in"
+                : "Sign up"}
             </button>
           </form>
         </div>
