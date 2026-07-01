@@ -183,7 +183,7 @@ export default function ExpensesPage() {
 
                         <button
                             onClick={() => setShowAddExpense(true)}
-                            className="bg-white border border-[#E5E1F8] rounded-xl px-3 py-2 text-xs font-medium text-[#5B4CF5] flex items-center gap-1"
+                            className=" cursor-pointer bg-white border border-[#E5E1F8] rounded-xl px-3 py-2 text-xs font-medium text-[#5B4CF5] flex items-center gap-1"
                         >
                             <IconPlus size={14} />
                             Add Expense
