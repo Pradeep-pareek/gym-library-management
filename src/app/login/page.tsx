@@ -1,10 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { IconEye, IconEyeOff } from "@tabler/icons-react";
+
 
 export default function LoginPage() {
   const [activeTab, setActiveTab] = useState("admin");
-
+  const [showPassword, setShowPassword] = useState(false);
   return (
     <div className="min-h-screen bg-[#D9D6F5] flex items-center justify-center">
       <div className="w-full max-w-sm bg-gradient-to-b from-[#5B4CF6] to-[#4A3CF0] p-6">
@@ -28,23 +30,21 @@ export default function LoginPage() {
             <button
               type="button"
               onClick={() => setActiveTab("admin")}
-              className={`flex-1 py-2 rounded-xl font-semibold transition cursor-pointer ${
-                activeTab === "admin"
+              className={`flex-1 py-2 rounded-xl font-semibold transition cursor-pointer ${activeTab === "admin"
                   ? "bg-[#5B4CF6] text-white"
                   : "text-gray-500"
-              }`}
+                }`}
             >
-             Log in
+              Log in
             </button>
 
             <button
               type="button"
               onClick={() => setActiveTab("member")}
-              className={`flex-1 py-2 rounded-xl font-semibold transition cursor-pointer ${
-                activeTab === "member"
+              className={`flex-1 py-2 rounded-xl font-semibold transition cursor-pointer ${activeTab === "member"
                   ? "bg-[#5B4CF6] text-white"
                   : "text-gray-500"
-              }`}
+                }`}
             >
               Sign up
             </button>
@@ -58,22 +58,49 @@ export default function LoginPage() {
                 </label>
 
                 <input
-                  type="number"
-                  placeholder="+91 9079813762"
+                  type="tel"
+                  inputMode="numeric"
+                  maxLength={10}
+                  placeholder="Enter Mobile Number"
                   className="w-full text-black rounded-lg border border-gray-200 bg-gray-50 px-4 text-base py-2 outline-none focus:ring-1 focus:ring-[#5B4CF6]"
                 />
               </div>
+
+              {/* <div>
+                <label className="block text-sm tracking-wider text-gray-500 mb-2">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="Enter Password"
+                  className="w-full text-black rounded-lg border border-gray-200 bg-gray-50 px-4 text-base py-2 outline-none focus:ring-1 focus:ring-[#5B4CF6]"
+                />
+              </div> */}
 
               <div>
                 <label className="block text-sm tracking-wider text-gray-500 mb-2">
                   Password
                 </label>
 
-                <input
-                  type="password"
-                  placeholder="Enter Password"
-                  className="w-full text-black rounded-lg border border-gray-200 bg-gray-50 px-4 text-base py-2 outline-none focus:ring-1 focus:ring-[#5B4CF6]"
-                />
+                <div className="relative">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Enter Password"
+                    className="w-full text-black rounded-lg border border-gray-200 bg-gray-50 px-4 pr-12 text-base py-2 outline-none focus:ring-1 focus:ring-[#5B4CF6]"
+                  />
+
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-[#5B4CF6] cursor-pointer"
+                  >
+                    {showPassword ? (
+                      <IconEyeOff size={20} />
+                    ) : (
+                      <IconEye size={20} />
+                    )}
+                  </button>
+                </div>
               </div>
             </div>
 

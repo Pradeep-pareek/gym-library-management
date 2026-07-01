@@ -7,8 +7,7 @@ import {
   Users,
   Wallet,
   Megaphone,
-  Bell,
-  Settings,
+  CircleUser,
 } from "lucide-react";
 
 export default function BottomNavigation() {
@@ -36,9 +35,9 @@ export default function BottomNavigation() {
       href: "/broadcast",
     },
     {
-      label: "Setting",
-      icon: Settings,
-      href: "/reminders",
+      label: "Profile",
+      icon: CircleUser,
+      href: "/profile",
     },
   ];
 
@@ -55,27 +54,23 @@ export default function BottomNavigation() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`relative flex flex-col items-center justify-center py-3 rounded-2xl transition-all duration-300 ${
-                    active
+                  className={`relative flex flex-col items-center justify-center py-3 rounded-2xl transition-all duration-300 ${active
                       ? "bg-violet-100"
                       : "hover:bg-gray-100"
-                  }`}
+                    }`}
                 >
                   <Icon
                     size={22}
-                    className={`transition-all duration-300 ${
-                      active
+                    className={`transition-all duration-300 ${active
                         ? "text-violet-600"
                         : "text-gray-500"
-                    }`}
+                      }`}
                   />
-
                   <span
-                    className={`mt-1 text-[11px] font-medium ${
-                      active
+                    className={`mt-1 text-[11px] font-medium ${active
                         ? "text-violet-600"
                         : "text-gray-500"
-                    }`}
+                      }`}
                   >
                     {item.label}
                   </span>

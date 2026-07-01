@@ -1,5 +1,6 @@
 import Header from "@/components/layout/Header";
 import BottomNavigation from "@/components/layout/BottomNavigation";
+import Link from "next/link";
 import {
   IconDots,
   IconBrandWhatsapp,
@@ -127,8 +128,21 @@ export default function PaymentsPage() {
                   </div>
                  
                 </div>
+
+                
               </div>
+              
             ))}
+             
+    <div className="p-5">
+ <Link
+  href="/payments/pending"
+  className="block mt-6 bg-[#ECE8FF] text-center py-4 rounded-2xl text-[#5B4CF5] font-semibold"
+>
+  View all members →
+</Link>
+    </div>
+              
           </div>
 
           {/* Summary */}
